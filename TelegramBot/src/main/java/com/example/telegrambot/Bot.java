@@ -33,45 +33,50 @@ public class Bot extends TelegramLongPollingBot {
     @Override
     @EventListener(SendMessage.class)
     public void onUpdateReceived(Update update) {
-        Long chatId;
+        Message message = update.getMessage();
+        Long chatId = message.getChatId();
+        String messageText = message.getText();
+        String[] text = messageText.split(" ");
+
         if (update.hasMessage()) {
-            Message message = update.getMessage();
-            chatId = message.getChatId();
-            String messageText = message.getText();
-            String[] text = messageText.split(" ");
-            if (message.hasText()) {
-                switch (text[0]) {
-                    case "/start":
-                        try {
-                            execute(getStartMessage(chatId.toString()));
-                        } catch (TelegramApiException e) {
-                            e.printStackTrace();
-                        }
-                        break;
-                    case "/video":
-                        try {
-                            execute(getVideoMessage(chatId.toString(), text[1], text[2], text[3]));
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                        break;
-                    case "/help":
-                        try {
-                            execute(getHelpMessage(chatId.toString()));
-                        } catch (TelegramApiException e) {
-                            e.printStackTrace();
-                        }
-                        break;
-                    case "/coin":
-                        try {
-                            execute(getСoinMessage(chatId.toString()));
-                        } catch (TelegramApiException e) {
-                            e.printStackTrace();
-                        }
-                        break;
+            try {
+                if (message.hasText()) {
+                    switch (text[0]) {
+                        case "/start":
+                            try {
+                                execute(getStartMessage(chatId.toString()));
+                            } catch (TelegramApiException e) {
+                                e.printStackTrace();
+                            }
+                            break;
+                        case "/coin":
+                            try {
+                                execute(getСoinMessage(chatId.toString()));
+                            } catch (TelegramApiException e) {
+                                e.printStackTrace();
+                            }
+                            break;
+                        case "/video":
+                            try {
+                                execute(getVideoMessage(chatId.toString(), text[1], text[2], text[3]));
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                            break;
+                        case "/help":
+                            try {
+                                execute(getHelpMessage(chatId.toString()));
+                            } catch (TelegramApiException e) {
+                                e.printStackTrace();
+                            }
+                            break;
+                    }
+                } else {
+                    throw new IllegalArgumentException("Я понимаю только текст");
                 }
-            } else {
-                new SendMessage(chatId.toString(), "Я понимаю только текст");
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+                e.printStackTrace();
             }
         }
     }
