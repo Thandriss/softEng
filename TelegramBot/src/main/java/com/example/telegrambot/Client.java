@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.Map;
+import java.util.Random;
 
 //?url=https://www.youtube.com/watch?v=epepDBIAJD8&ab&timeStart=00:01:02&timeEnd=00:01:06
 @RestController
@@ -50,5 +51,24 @@ public class Client {
         }
         result = output[0] * 3600 + output[1] * 60 + output[2];
         return result;
+    }
+
+    @GetMapping(value = "/help")
+    public static String helpFun() {
+        return "/video - делает из видео gif-ки. Для этого надо вставить ссылку,"+
+                "желаемое время начала и конца воспроизведения в формате 00:00:00. Видео не дольше 5 минут" +
+                "/монетка - помогает приянть жизненноважные решения"+
+                "/help - справочная";
+    }
+
+    @GetMapping(value = "/coin")
+    public static String coinFun() {
+        Random random = new Random();
+        int num = random.nextInt(2);
+        if (num == 1) {
+            return "No";
+        } else {
+            return "Yes";
+        }
     }
 }
