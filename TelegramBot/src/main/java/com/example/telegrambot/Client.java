@@ -24,6 +24,9 @@ public class Client {
         int start = timeToSeconds(timeStart);
         int end = timeToSeconds(timeEnd);
         int dur = end - start;
+        if (dur > 120) {
+            dur = 120;
+        }
         options.setFramesPerSecond(10);
         options.setDuration(dur);
         options.setStart(start);
