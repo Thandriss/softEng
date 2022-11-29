@@ -14,6 +14,7 @@ import java.util.Random;
 @RestController
 public class Client {
     private static final Map<String, String> getenv = System.getenv();
+
     @GetMapping(value = "/video",
             produces = MediaType.IMAGE_GIF_VALUE
     )
@@ -38,28 +39,38 @@ public class Client {
                 }
                 break;
             } catch (Exception e) {
+                e.printStackTrace();
             }
         }
         return result;
     }
 
     public static int timeToSeconds(String time) {
-        int result;
-        int[] output = {0, 0, 0};
-        String[] parts = time.split(":");
-        for (int x = 0; x < parts.length; x++) {
-            if (x >= output.length)
-                break;
-            output[x] = Integer.parseInt(parts[x]);
+        int result = 0;
+        try {
+            int[] output = {0, 0, 0};
+            String[] parts = time.split(":");
+            for (int x = 0; x < parts.length; x++) {
+                if (x >= output.length)
+                    break;
+                output[x] = Integer.parseInt(parts[x]);
+            }
+            result = output[0] * 3600 + output[1] * 60 + output[2];
+            if (result == 0) {
+                throw new IllegalArgumentException("Мы не можем обработьа время равное 0");
+            }
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
         }
-        result = output[0] * 3600 + output[1] * 60 + output[2];
         return result;
     }
+    
+
     @GetMapping(value = "/help")
     public static String helpFun() {
-        return "/video - делает из видео gif-ки. Для этого надо вставить ссылку,"+
+        return "/video - делает из видео gif-ки. Для этого надо вставить ссылку," +
                 "желаемое время начала и конца воспроизведения в формате 00:00:00. Видео не дольше 5 минут" +
-                "/монетка - помогает приянть жизненноважные решения"+
+                "/монетка - помогает приянть жизненноважные решения" +
                 "/help - справочная";
     }
 }

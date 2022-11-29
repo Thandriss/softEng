@@ -52,6 +52,7 @@ public class Bot extends TelegramLongPollingBot {
                             try {
                                 execute(getVideoMessage(chatId.toString(), text[1], text[2], text[3]));
                             } catch (Exception e) {
+
                                 e.printStackTrace();
                             }
                             break;
