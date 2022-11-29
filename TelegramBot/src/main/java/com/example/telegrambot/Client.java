@@ -55,4 +55,11 @@ public class Client {
         result = output[0] * 3600 + output[1] * 60 + output[2];
         return result;
     }
+    @GetMapping(value = "/help")
+    public static String helpFun() {
+        return "/video - делает из видео gif-ки. Для этого надо вставить ссылку,"+
+                "желаемое время начала и конца воспроизведения в формате 00:00:00. Видео не дольше 5 минут" +
+                "/монетка - помогает приянть жизненноважные решения"+
+                "/help - справочная";
+    }
 }

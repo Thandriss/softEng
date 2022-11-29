@@ -55,6 +55,13 @@ public class Bot extends TelegramLongPollingBot {
                                 e.printStackTrace();
                             }
                             break;
+                        case "/help":
+                            try {
+                                execute(getHelpMessage(chatId.toString()));
+                            } catch (TelegramApiException e) {
+                                e.printStackTrace();
+                            }
+                            break;
                     }
                 } else {
                     throw new IllegalArgumentException("Я понимаю только текст");
@@ -84,5 +91,9 @@ public class Bot extends TelegramLongPollingBot {
         sendAnimation.setChatId(chatId);
         sendAnimation.setAnimation(f);
         return sendAnimation;
+    }
+    private SendMessage getHelpMessage(String chatId) {
+        String result = Client.helpFun();
+        return new SendMessage(chatId, result);
     }
 }
