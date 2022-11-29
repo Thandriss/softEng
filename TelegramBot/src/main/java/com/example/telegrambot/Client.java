@@ -73,4 +73,18 @@ public class Client {
                 "/монетка - помогает приянть жизненноважные решения" +
                 "/help - справочная";
     }
+    @GetMapping(value = "/coin")
+    public static String coinFun() {
+        Random random = new Random();
+        int num = random.nextInt(2);
+        if (num == 1) {
+            return "No";
+        } else {
+            return "Yes";
+        }
+    }
+    @GetMapping(value = "/motivation")
+    public static String motFun() {
+        return "Ты всё сможешь!";
+    }
 }
