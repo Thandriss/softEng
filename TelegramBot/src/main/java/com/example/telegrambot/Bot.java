@@ -48,17 +48,31 @@ public class Bot extends TelegramLongPollingBot {
                             } catch (TelegramApiException e) {
                                 e.printStackTrace();
                             }
+                            break;
+                        case "/coin":
+                            try {
+                                execute(getСoinMessage(chatId.toString()));
+                            } catch (TelegramApiException e) {
+                                e.printStackTrace();
+                            }
+                            break;
                         case "/video":
                             try {
                                 execute(getVideoMessage(chatId.toString(), text[1], text[2], text[3]));
                             } catch (Exception e) {
-
                                 e.printStackTrace();
                             }
                             break;
                         case "/help":
                             try {
                                 execute(getHelpMessage(chatId.toString()));
+                            } catch (TelegramApiException e) {
+                                e.printStackTrace();
+                            }
+                            break;
+                        case "/motivation":
+                            try {
+                                execute(getMotMessage(chatId.toString()));
                             } catch (TelegramApiException e) {
                                 e.printStackTrace();
                             }
@@ -93,8 +107,18 @@ public class Bot extends TelegramLongPollingBot {
         sendAnimation.setAnimation(f);
         return sendAnimation;
     }
+
+    private SendMessage getСoinMessage(String chatId) {
+        String result = Client.coinFun();
+        return new SendMessage(chatId, result);
+    }
+
     private SendMessage getHelpMessage(String chatId) {
         String result = Client.helpFun();
+        return new SendMessage(chatId, result);
+    }
+    private SendMessage getMotMessage(String chatId) {
+        String result = Client.motFun();
         return new SendMessage(chatId, result);
     }
 }
