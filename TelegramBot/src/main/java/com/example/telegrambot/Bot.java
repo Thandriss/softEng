@@ -2,6 +2,7 @@ package com.example.telegrambot;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.event.EventListener;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendAnimation;
@@ -32,6 +33,7 @@ public class Bot extends TelegramLongPollingBot {
 
     @Override
     @EventListener(SendMessage.class)
+    @Async
     public void onUpdateReceived(Update update) {
         Message message = update.getMessage();
         Long chatId = message.getChatId();
