@@ -2,15 +2,17 @@ package com.example.telegrambot;
 
 import it.grabz.grabzit.GrabzItClient;
 import it.grabz.grabzit.parameters.AnimationOptions;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 import java.util.Random;
 
 //?url=https://www.youtube.com/watch?v=epepDBIAJD8&ab&timeStart=00:01:02&timeEnd=00:01:06
+
 @RestController
 public class Client {
     private static final Map<String, String> getenv = System.getenv();
@@ -45,6 +47,7 @@ public class Client {
                 e.printStackTrace();
             }
         }
+        System.out.println(result);
         return result;
     }
 
@@ -77,6 +80,7 @@ public class Client {
                 "/motivation - поднимает боевой дух \n" +
                 "/help - справочная";
     }
+
     @GetMapping(value = "/coin")
     public static String coinFun() {
         Random random = new Random();
