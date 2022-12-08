@@ -5,11 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest(classes = TelegramBotApplication.class)
 public class ClientTests {
-    @Autowired
-    Client client;
-
     @Test
     void helpTest() {
         String expected = "/video - делает из видео gif-ки. Для этого надо вставить ссылку,\n" +
@@ -17,7 +13,7 @@ public class ClientTests {
                 "/coin - помогает приянть жизненноважные решения\n" +
                 "/motivation - поднимает боевой дух \n" +
                 "/help - справочная";
-        String result = client.helpFun();
+        String result = Client.helpFun();
         Assertions.assertEquals(result, expected);
     }
     @Test
@@ -25,7 +21,7 @@ public class ClientTests {
         String true1 = "Yes";
         String true2 = "No";
         for (int i = 0; i < 4; i++) {
-            String result = client.coinFun();
+            String result = Client.coinFun();
             if (result.equals(true1)) {
                 Assertions.assertEquals(result, true1);
             } else {
