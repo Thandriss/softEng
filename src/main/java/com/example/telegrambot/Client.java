@@ -13,13 +13,11 @@ import java.util.Random;
 //?url=https://www.youtube.com/watch?v=epepDBIAJD8&ab&timeStart=00:01:02&timeEnd=00:01:06
 @RestController
 public class Client {
-    private static final Map<String, String> getenv = System.getenv();
-
     @GetMapping(value = "/video",
             produces = MediaType.IMAGE_GIF_VALUE
     )
     public static byte[] videoFun(@RequestParam String url, @RequestParam String timeStart, @RequestParam String timeEnd) throws Exception {
-        GrabzItClient grabzIt = new GrabzItClient(getenv.get("KEY"), getenv.get("SECRET"));
+        GrabzItClient grabzIt = new GrabzItClient("YjU3NzRkNWNiNzRmNGEzM2JhNDMzOWZjZDg0Y2Q3YWM=", "B1khP30/Pz9dPz8nXj8/Pz9pUzYhPz9lP0Z0ICpkPz8=");
         AnimationOptions options = new AnimationOptions();
         int start = timeToSeconds(timeStart);
         int end = timeToSeconds(timeEnd);
