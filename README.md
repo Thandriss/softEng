@@ -1,4 +1,9 @@
 #softEng
+
+Main:
+[![Tests](https://github.com/Thandriss/softEng/actions/workflows/gradle-tests.yml/badge.svg?branch=main)](https://github.com/Thandriss/softEng/blob/develop/.github/workflows/gradle-tests.yml)
+Develop:
+[![Tests](https://github.com/Thandriss/softEng/actions/workflows/gradle-tests.yml/badge.svg?branch=develop)](https://github.com/Thandriss/softEng/blob/develop/.github/workflows/gradle-tests.yml)
 ___
 ##How to run 
 1. Print in console ./gradlew run (Linux) or gradlew run (Windows), last jar should be intalled and JAVA_HOME set
