@@ -19,6 +19,7 @@ repositories {
 }
 
 dependencies {
+    implementation 'it.grabz.grabzit:grabzit:3.5.2'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
     implementation 'org.projectlombok:lombok:1.18.20'
@@ -29,7 +30,7 @@ dependencies {
     implementation "jakarta.xml.bind:jakarta.xml.bind-api:2.3.2"
     implementation "org.glassfish.jaxb:jaxb-runtime:2.3.2"
     implementation 'org.telegram:telegrambots-spring-boot-starter:6.3.0'
-    implementation files('libs/grabzit.jar')
+
 }
 
 tasks.named('test') {
