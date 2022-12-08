@@ -7,9 +7,9 @@ ___
 
 ---
 
-![подпись](TelegramBot/src/main/resources/28jhDqRmnDoXdNbwfiso153IiU6V4B_Az4aYK4iPgza64ZVOwj0p2XGskDV7YjX7tiA7Qv4INNH9Ke-nS-M6FWBc.jpg)
+![подпись](/TelegramBot/src/main/resources/28jhDqRmnDoXdNbwfiso153IiU6V4B_Az4aYK4iPgza64ZVOwj0p2XGskDV7YjX7tiA7Qv4INNH9Ke-nS-M6FWBc.jpg)
 
-![подпись](TelegramBot/src/main/resources/wqNh9QhAKcYLRjOIwBLcnFk3NnormK0mL-kLTzTc-wmO0FQzmhmvNno9DjmDBomBzOV2gpKf7h3c2MgbuRfxQu8k.jpg)
+![подпись](/TelegramBot/src/main/resources/wqNh9QhAKcYLRjOIwBLcnFk3NnormK0mL-kLTzTc-wmO0FQzmhmvNno9DjmDBomBzOV2gpKf7h3c2MgbuRfxQu8k.jpg)
 
 More information about the functions:
 1. /video - for running it is need to give url of youtube video, time of start and end. Duration of gif can not be more than 2 minutes
