@@ -1,16 +1,25 @@
-#softEng
+# softEng
 
 Main:
 [![Tests](https://github.com/Thandriss/softEng/actions/workflows/gradle-tests.yml/badge.svg?branch=main)](https://github.com/Thandriss/softEng/actions/workflows/gradle-tests.yml)
 Develop:
 [![Tests](https://github.com/Thandriss/softEng/actions/workflows/gradle-tests.yml/badge.svg?branch=develop)](https://github.com/Thandriss/softEng/actions/workflows/gradle-tests.yml)
 ___
-##How to run
+## How to run
 1. Print in console ./gradlew run (Linux) or gradlew run (Windows), last jar should be intalled and JAVA_HOME set
 
 2. Docker build -t thandriss/yor . and start it with port mapping: docker run -p 80:80 thandriss/yor
 
 ---
+
+## Tech Stack
+- **Java** (main language)  
+- **Gradle / Gradle Wrapper** (`gradlew`, `build.gradle`)  
+- **Docker** (optional containerized run)  
+- **GitHub Actions** (workflow in `.github/workflows`)
+- **Docker**
+
+___
 
 ![подпись](\src\main\resources\28jhDqRmnDoXdNbwfiso153IiU6V4B_Az4aYK4iPgza64ZVOwj0p2XGskDV7YjX7tiA7Qv4INNH9Ke-nS-M6FWBc.jpg)
 
